@@ -1,24 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import useAPIKey from './hooks/useAPIKey';
+import Navbar from './Navbar';
+import Home from './home/Home';
+import GetDevices from './get-devices/GetDevices';
+import GetLatest from './get-latest/GetLatest';
+import GetManufacturers from './get-manufacturers/GetManufacturers'
+import './App.css'
 
 function App() {
+  const [key, createKey] = useAPIKey();
+
+  useEffect(() => {
+    if (key === null) {
+      createKey()
+    }
+  });
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      <br />
+      <Route exact path="/">
+        <Home />
+      </Route>
+      <Route exact path="/get-devices">
+        <GetDevices apiKey={key} />
+      </Route>
+      <Route exact path="/get-latest">
+        <GetLatest apiKey={key} />
+      </Route>
+      <Route exact path="/get-manufacturers">
+        <GetManufacturers apiKey={key} />
+      </Route>
+    </BrowserRouter>
   );
 }
 

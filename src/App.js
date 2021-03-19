@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import useAPIKey from './hooks/useAPIKey';
 import Navbar from './Navbar';
-import Home from './home/Home';
-import GetDevices from './get-devices/GetDevices';
-import GetLatest from './get-latest/GetLatest';
-import GetManufacturers from './get-manufacturers/GetManufacturers'
+import Home from './components/Home';
+import GetDevices from './components/GetDevices';
+import GetLatest from './components/GetLatest';
+import GetManufacturers from './components/GetManufacturers'
 import './App.css'
 
 function App() {

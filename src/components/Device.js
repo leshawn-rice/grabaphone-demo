@@ -1,5 +1,5 @@
 import React from 'react';
-import './Devices.css'
+import '../styles/Device.css'
 import { v4 as uuid } from 'uuid';
 
 const Device = ({ data = { name: undefined } }) => {
@@ -36,10 +36,6 @@ const Device = ({ data = { name: undefined } }) => {
       <h1>Specs</h1>
       <div className="specs">
         {deviceSpecs.map(spec => <p key={spec.id}>{spec.name}: {spec.value ? spec.value : `Unavailable!`}</p>)}
-        {/* <p>Display: {screenSize ? screenSize : "Spec Unavailable!"}</p>
-        <p>Price: {price ? price : "Price Unavailable"}</p>
-        <p>Battery Size: {battery}</p>
-        <p>Dimensions: {dimensions}</p> */}
       </div>
     </div>
   );

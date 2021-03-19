@@ -1,5 +1,5 @@
 import React from 'react';
-import './Manufacturers.css'
+import '../styles/Manufacturer.css'
 
 const Manufacturer = ({ data = { name: undefined } }) => {
 

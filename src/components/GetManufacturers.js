@@ -33,19 +33,19 @@ const GetManufacturers = ({ apiKey = null }) => {
   }
 
   const inputs = [
-    { name: 'manufacturer', type: 'text', placeholder: 'Apple', label: 'Manufacturer Name: ' },
-    { name: 'limit', type: 'number', min: 1, max: 100, placeholder: 100, label: 'Limit: ' }
+    { name: 'manufacturer', type: 'text', placeholder: 'Apple', label: 'Manufacturer Name' },
+    { name: 'offset', type: 'number', min: 0, placeholder: 0, label: 'Offset' },
+    { name: 'limit', type: 'number', min: 1, max: 100, placeholder: 100, label: 'Limit' }
   ];
 
   const INITIAL_FORM_DATA = {
     manufacturer: '',
-    limit: 100
+    offset: undefined,
+    limit: undefined
   }
 
   return (
     <>
-      <h1>Demo of https://grabaphone.herokuapp.com/api/get-manufacturers</h1>
-
       <Form inputs={inputs} INITIAL_DATA={INITIAL_FORM_DATA} sendRequest={sendRequest} />
 
       <div className="Manufacturers">

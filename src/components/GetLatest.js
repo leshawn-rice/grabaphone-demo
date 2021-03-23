@@ -34,23 +34,23 @@ const GetLatest = ({ apiKey = null }) => {
   }
 
   const inputs = [
-    { name: 'name', type: 'text', placeholder: 'iPhone', label: 'Device Name: ' },
-    { name: 'manufacturer', type: 'text', placeholder: 'Apple', label: 'Manufacturer Name: ' },
-    { name: 'limit', type: 'number', min: 1, max: 100, placeholder: 100, label: 'Limit: ' },
-    { name: 'isReleased', type: 'checkbox', label: 'Is Released: ' }
+    { name: 'name', type: 'text', placeholder: 'iPhone', label: 'Device Name ' },
+    { name: 'manufacturer', type: 'text', placeholder: 'Apple', label: 'Manufacturer Name ' },
+    { name: 'offset', type: 'number', min: 0, placeholder: 0, label: 'Offset ' },
+    { name: 'limit', type: 'number', min: 1, max: 100, placeholder: 100, label: 'Limit ' },
+    { name: 'isReleased', type: 'checkbox', label: 'Is Released ' }
   ];
 
   const INITIAL_FORM_DATA = {
     name: '',
     manufacturer: '',
-    limit: 100,
+    offset: undefined,
+    limit: undefined,
     isReleased: false
   }
 
   return (
     <>
-      <h1>Demo of https://grabaphone.herokuapp.com/api/get-latest-devices</h1>
-
       <Form inputs={inputs} INITIAL_DATA={INITIAL_FORM_DATA} sendRequest={sendRequest} />
 
       <div className="Devices">
